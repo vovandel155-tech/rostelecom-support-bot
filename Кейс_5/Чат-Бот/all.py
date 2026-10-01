@@ -179,7 +179,7 @@ if page == "Чат-бот":
                     st.session_state.history.append(("Бот","Извините, не понял запрос."))
                     st.session_state.last_q, st.session_state.last_a = q, None
                     # prepare feedback
-                st.experimental_rerun()
+                st.rerun()
         inp = st.text_input("Или введите свой вопрос:", key="msg_input")
         if st.button("Начать чат") and inp.strip():
             st.session_state.started = True
@@ -193,7 +193,7 @@ if page == "Чат-бот":
                 log_missed(inp.strip())
                 st.session_state.history.append(("Бот","Извините, не понял запрос."))
                 st.session_state.last_q, st.session_state.last_a = inp.strip(), None
-            st.experimental_rerun()
+            st.rerun()
         st.write("Это страница чат-бота")
         st.stop()
     if page == "Чат-бот":
